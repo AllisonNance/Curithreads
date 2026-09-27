@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Curithreads — Typography
+   Requires tokens.css.
+
+   Type styles set font only, never color. Pair them with a .text-* color
+   utility (bottom of file) or set color on the parent section.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@400;500;700&display=swap");
+
+/* ---- Display (Futura) ---------------------------------------------------- */
+
+/* 64/70.4 · 500 — hero headline ("How does the sun make a car go?") */
+.display {
+  font-family: var(--font-display);
+  font-size: var(--size-64);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+}
+
+/* 40/44 · 500 — section headline ("A diagram they can trace with a finger.") */
+.heading-lg {
+  font-family: var(--font-display);
+  font-size: var(--size-40);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+}
+
+/* 40/60 · 700 — CTA headline ("Done reviewing the page?") */
+.heading-lg-bold {
+  font-family: var(--font-display);
+  font-size: var(--size-40);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-normal);
+}
+
+/* 28/37.8 · 500 — intro statement ("Curithreads shirts explain…") */
+.lead {
+  font-family: var(--font-display);
+  font-size: var(--size-28);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+/* ---- Body (Inter) -------------------------------------------------------- */
+
+/* 24/36 · 700 — step / card title ("The Sun", "Inverter") */
+.title {
+  font-family: var(--font-body);
+  font-size: var(--size-24);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-normal);
+}
+
+/* 18/27 · 400 — long-form paragraph ("We'd love to hear what you think…") */
+.body-lg {
+  font-family: var(--font-body);
+  font-size: var(--size-18);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+}
+
+/* 18/27 · 500 — body on dark backgrounds ("A science shirt for curious kids…") */
+.body-lg-medium {
+  font-family: var(--font-body);
+  font-size: var(--size-18);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-normal);
+}
+
+/* 16/24 · 400 — default body ("Take a minute to look this page over") */
+.body {
+  font-family: var(--font-body);
+  font-size: var(--size-16);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+}
+
+/* 16/24 · 700 — emphasis ("Here for the parent interview?") */
+.body-bold {
+  font-family: var(--font-body);
+  font-size: var(--size-16);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-normal);
+}
+
+/* Links inherit the surrounding style and add the underline.
+   <a class="body">…</a> or <a class="body-bold">Take the Interview</a> */
+/* :where() keeps specificity at zero so components like .button can override */
+:where(.link, a.body, a.body-bold) {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* ---- Mono (IBM Plex Mono) ------------------------------------------------ */
+
+/* 36/36 · 400 — step numerals ("01", "02") */
+.numeral {
+  font-family: var(--font-mono);
+  font-size: var(--size-36);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-none);
+}
+
+/* 20/30 · 400 — eyebrows ("The Product", "Scan. Learn. Wear.") and
+   step descriptions ("Light from the sun shines down…") */
+.mono-lg {
+  font-family: var(--font-mono);
+  font-size: var(--size-20);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+}
+
+/* 16/24 · 400 — labels, notes, feature copy ("Watch", "No app needed") */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--size-16);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+}
+
+/* ---- Icons (Font Awesome) -----------------------------------------------
+   Font family + style come from Font Awesome's own classes
+   (fa-solid / fa-regular). These only size the glyph.
+   <i class="fa-solid fa-caret-right icon-sm" aria-hidden="true"></i> */
+
+.icon    { font-size: var(--size-18); line-height: 1; }
+.icon-sm { font-size: var(--size-16); line-height: 1; }
+
+/* ---- Text color utilities ------------------------------------------------ */
+
+.text-default        { color: var(--text-default); }
+.text-accent         { color: var(--text-accent); }
+.text-inverse        { color: var(--text-inverse); }
+.text-inverse-display{ color: var(--text-inverse-display); }
+.text-inverse-accent { color: var(--text-inverse-accent); }
+.text-inverse-subtle { color: var(--text-inverse-subtle); }
+.text-icon-accent    { color: var(--text-icon-accent); }
+.text-white          { color: var(--color-white); }
+
+/* ---- Responsive scale ---------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .display          { font-size: var(--size-40); }
+  .heading-lg,
+  .heading-lg-bold  { font-size: var(--size-28); line-height: var(--leading-tight); }
+  .lead             { font-size: var(--size-20); }
+  .numeral          { font-size: var(--size-28); }
+  .mono-lg          { font-size: var(--size-18); }
+}

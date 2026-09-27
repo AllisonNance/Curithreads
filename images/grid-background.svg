@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="121.333" height="121.333" viewBox="0 0 485.333 485.333">
+<!-- Seamless tile cut from curithreads-grid-background-transparent.svg (one 485.333 period),
+     rendered at 25% scale with the whole pattern at 10% opacity. -->
+<g fill="#FFF5EA" opacity="0.1">
+  <rect x="14.56" y="0" width="4.853" height="485.333" opacity="0.5"/>
+  <rect x="0" y="14.56" width="485.333" height="4.853" opacity="0.5"/>
+  <rect x="109.2" y="0" width="4.853" height="485.333" opacity="0.2"/>
+  <rect x="0" y="109.2" width="485.333" height="4.853" opacity="0.2"/>
+  <rect x="206.752" y="0" width="4.853" height="485.333" opacity="0.2"/>
+  <rect x="0" y="206.752" width="485.333" height="4.853" opacity="0.2"/>
+  <rect x="303.819" y="0" width="4.853" height="485.333" opacity="0.2"/>
+  <rect x="0" y="303.819" width="485.333" height="4.853" opacity="0.2"/>
+  <rect x="401.371" y="0" width="4.853" height="485.333" opacity="0.2"/>
+  <rect x="0" y="401.371" width="485.333" height="4.853" opacity="0.2"/>
+  <rect x="14.56" y="0" width="4.853" height="33.973"/>
+  <rect x="0" y="14.56" width="33.973" height="4.853"/>
+  <rect x="257.227" y="257.227" width="4.853" height="4.853"/>
+</g>
+</svg>

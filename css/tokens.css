@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Curithreads — Design Tokens
+   ========================================================================== */
+
+:root {
+  /* ---- Color: primary ---------------------------------------------------
+     Names mirror the Figma variables (curithreads-brand-colors), so Figma
+     Dev Mode output like var(--primary-navy) works as-is. */
+  --primary-blue: #219ebc;
+  --primary-teal: #126783;
+  --primary-navy: #023047;
+  --primary-orange: #fb8501;
+
+  /* ---- Color: sky scale ------------------------------------------------ */
+  --scale-sky-50: #cae9f1;    /* NOT IN FIGMA — from parent-interview "The Product" bg */
+  --scale-sky-100: #9bdded;
+  --scale-sky-200: #7cd3e8;
+  --scale-sky-300: #5ec9e2;
+  --scale-sky-400: #40bfdd;
+  --scale-sky-500: #25b2d4;
+  --scale-sky-600: #1f99b6;
+  --scale-sky-700: #1a7f97;
+  --scale-sky-800: #156679;
+  --scale-sky-900: #0f4c5b;
+  --scale-sky-1000: #0a333c;
+
+  /* ---- Color: ocean scale ---------------------------------------------- */
+  --scale-ocean-100: #97daf0;
+  --scale-ocean-200: #78cfec;
+  --scale-ocean-300: #59c4e8;
+  --scale-ocean-400: #39b9e3;
+  --scale-ocean-500: #1eacdb;
+  --scale-ocean-600: #1994bc;
+  --scale-ocean-700: #157b9c;
+  --scale-ocean-800: #11627d;
+  --scale-ocean-900: #0c4a5e;
+  --scale-ocean-1000: #08313e;
+
+  /* ---- Color: navy scale ----------------------------------------------- */
+  --scale-navy-50: #d9f2fe;   /* NOT IN FIGMA — from text styles (body on dark) */
+  --scale-navy-100: #8cd6fb;
+  --scale-navy-200: #6acafa;
+  --scale-navy-300: #47bef9;
+  --scale-navy-400: #24b2f8;
+  --scale-navy-500: #06a4f3;
+  --scale-navy-600: #058cd0;
+  --scale-navy-700: #0475ad;
+  --scale-navy-800: #035d8a;
+  --scale-navy-900: #024668;
+  --scale-navy-1000: var(--primary-navy); /* Figma has #012E45; unified with primary navy */
+
+  /* ---- Color: orange scale --------------------------------------------- */
+  --scale-orange-25: #ffecd8; /* NOT IN FIGMA — from text styles (headlines on dark) */
+  --scale-orange-50: #ffdeba;
+  --scale-orange-100: #fec78a;
+  --scale-orange-200: #feb666;
+  --scale-orange-300: #fea543;
+  --scale-orange-400: #fe951f;
+  --scale-orange-500: #f88300;
+  --scale-orange-600: #d57100;
+  --scale-orange-700: #b15e00;
+  --scale-orange-800: #8e4b00;
+  --scale-orange-900: #6a3800;
+  --scale-orange-1000: #472500;
+
+  /* ---- Color: neutrals ------------------------------------------------- */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ---- Color: semantic text -------------------------------------------- */
+  --text-default: var(--primary-navy);
+  --text-accent: var(--scale-orange-700);         /* eyebrows, step numbers */
+  --text-inverse: var(--scale-navy-50);           /* body copy on navy */
+  --text-inverse-display: var(--scale-orange-25); /* headlines on navy */
+  --text-inverse-accent: var(--scale-orange-100); /* eyebrows on navy */
+  --text-inverse-subtle: var(--scale-orange-50);  /* small mono notes on navy */
+  --text-icon-accent: var(--scale-orange-200);    /* bullet carets on navy */
+
+  /* ---- Color: semantic surfaces ---------------------------------------- */
+  --surface-default: var(--color-white);
+  --surface-inverse: var(--primary-navy);
+  --surface-inverse-raised: var(--scale-navy-900); /* cards on navy */
+  --surface-banner: var(--scale-orange-50);
+  --surface-warm: var(--scale-orange-25);
+  --surface-cool: var(--scale-sky-50);
+  --surface-accent: var(--scale-orange-200);
+  --surface-tag: var(--scale-orange-25);
+
+  /* ---- Color: semantic borders ----------------------------------------- */
+  --border-frame: var(--scale-orange-25);   /* thin outline around cards/images */
+  --border-tag: var(--scale-orange-300);
+  --border-pill-inverse: var(--scale-orange-50);
+  --border-accent: var(--scale-orange-200); /* thick rule under banner */
+
+  /* ---- Font families --------------------------------------------------- */
+  --font-display: "Futura", "Futura PT", "Jost", "Century Gothic", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-icon: "Font Awesome 7 Pro";
+
+  /* ---- Font weights ---------------------------------------------------- */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --weight-solid: 900; /* Font Awesome "solid" style */
+
+  /* ---- Font sizes (16px root) ------------------------------------------ */
+  --size-14: 0.875rem;  /* 14px */
+  --size-16: 1rem;      /* 16px */
+  --size-18: 1.125rem;  /* 18px */
+  --size-20: 1.25rem;   /* 20px */
+  --size-24: 1.5rem;    /* 24px */
+  --size-28: 1.75rem;   /* 28px */
+  --size-36: 2.25rem;   /* 36px */
+  --size-40: 2.5rem;    /* 40px */
+  --size-64: 4rem;      /* 64px */
+
+  /* ---- Line heights (unitless ratios) ---------------------------------- */
+  --leading-none: 1;     /* 36/36 */
+  --leading-tight: 1.1;  /* 64/70.4, 40/44 */
+  --leading-snug: 1.35;  /* 28/37.8 */
+  --leading-normal: 1.5; /* 16/24, 18/27, 20/30, 24/36, 40/60 */
+
+  /* ---- Spacing --------------------------------------------------------- */
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-40: 2.5rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-72: 4.5rem;
+
+  /* ---- Radius ---------------------------------------------------------- */
+  --radius-md: 10px;
+  --radius-lg: 15px;
+  --radius-pill: 9999px;
+
+  /* ---- Shadows --------------------------------------------------------- */
+  --shadow-frame: 0 4px 4px #00141d;
+  --shadow-raised: 0 4px 16px rgb(0 0 0 / 0.25);
+  /* Image drop shadows — pick by the background the image sits on */
+  --shadow-media-dark: 0 4px 16px 8px rgb(0 0 0 / 0.25);  /* on dark (navy) */
+  --shadow-media-light: 0 4px 16px 8px rgb(0 0 0 / 0.15); /* on light surfaces */
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --container-max: 1440px;
+  --content-max: 750px;  /* readable text column */
+  --gutter: var(--space-64);
+  --section-pad-y: var(--space-64);
+}
+
+@media (max-width: 600px) {
+  :root {
+    --gutter: var(--space-24);
+    --section-pad-y: var(--space-48);
+  }
+}

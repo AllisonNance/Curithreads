@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curithreads — Parent Interview</title>
+
+  <!-- TODO: swap for the Font Awesome 7 Pro kit script; then use fa-regular for play/gamepad/flask as in Figma -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="parent-interview.css">
+  <script src="parent-interview.js" defer></script>
+</head>
+<body>
+
+  <!-- Announcement banner -->
+  <div class="announcement surface-banner">
+    <p class="body">
+      <strong class="body-bold">Here for the parent interview?</strong>
+      Take a minute to look this page over,
+      <a class="body" href="https://buildpad.io/interview/tk2288g4">then start the conversation.</a>
+    </p>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <header class="surface-inverse surface-grid">
+      <div class="container hero">
+        <img class="hero__logo" src="../images/curithreads-logo-white.svg" alt="Curithreads" width="213" height="36">
+
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <div class="hero__intro">
+              <div class="heading-group">
+                <p class="mono-lg text-inverse-accent">Scan. Learn. Wear.</p>
+                <h1 class="display text-inverse-display">How does the sun make a car go?</h1>
+              </div>
+
+              <ul class="caret-list body-lg-medium text-inverse" role="list">
+                <li><i class="fa-solid fa-caret-right icon-sm" aria-hidden="true"></i>A science shirt for curious kids ages 5 to 12.</li>
+                <li><i class="fa-solid fa-caret-right icon-sm" aria-hidden="true"></i>The diagram on the front shows how it works.</li>
+                <li><i class="fa-solid fa-caret-right icon-sm" aria-hidden="true"></i>The QR code opens the deeper learning experience.</li>
+              </ul>
+            </div>
+
+            <ul class="pill-row" role="list">
+              <li class="pill mono">Scan with your phone camera</li>
+              <li class="pill mono">No app needed</li>
+            </ul>
+          </div>
+
+          <figure class="frame frame--dashed hero__media">
+            <img
+              src="../images/solar-to-ev-4-1280.jpg"
+              srcset="../images/solar-to-ev-4-800.jpg 800w, ../images/solar-to-ev-4-1280.jpg 1280w"
+              sizes="(max-width: 960px) 100vw, 50vw"
+              alt="Navy Curithreads t-shirt printed with a diagram of sunlight, solar panels and an EV charger, with the QR code on the collar linking to video, activity and reading screens"
+              width="1280" height="720" fetchpriority="high">
+            <figcaption class="tag mono"><span class="tag__dot" aria-hidden="true"></span>QR code sits in the tag area</figcaption>
+          </figure>
+        </div>
+      </div>
+    </header>
+
+    <!-- The Product -->
+    <section class="surface-cool surface-grain" aria-labelledby="product-heading">
+      <div class="container product">
+        <h2 id="product-heading" class="mono-lg text-accent">The Product</h2>
+        <p class="lead">Curithreads shirts explain different "how does that work?" ideas from science and engineering. Each one comes with its own scan experience.</p>
+        <figure class="frame frame--dashed product__media">
+          <img
+            src="../images/solar-to-ev-5-900.jpg"
+            srcset="../images/solar-to-ev-5-450.jpg 450w, ../images/solar-to-ev-5-900.jpg 900w, ../images/solar-to-ev-5-1200.jpg 1200w"
+            sizes="(max-width: 648px) calc(100vw - 80px), 568px"
+            alt="Navy Curithreads t-shirt with a printed diagram showing sunlight hitting solar panels, an inverter converting DC to AC electricity, and an EV charger charging a car battery"
+            width="900" height="688" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <!-- On the Shirt -->
+    <section class="surface-warm surface-grain" aria-labelledby="shirt-heading">
+      <div class="container shirt">
+        <div class="heading-group shirt__intro">
+          <p class="mono-lg text-accent">On the Shirt</p>
+          <h2 id="shirt-heading" class="heading-lg">A diagram they can trace with a finger.</h2>
+        </div>
+
+        <ol class="steps" role="list">
+          <li class="step" style="--i: 0">
+            <div class="step__card">
+              <div class="step__art"><img src="../images/sun.svg" alt="" width="344" height="266"></div>
+              <div class="step__text">
+                <div>
+                  <span class="numeral text-accent" aria-hidden="true">01</span>
+                  <h3 class="title">The Sun</h3>
+                </div>
+                <p class="mono-lg">Light from the sun shines down on the solar panels.</p>
+              </div>
+            </div>
+          </li>
+          <li class="step" style="--i: 1">
+            <div class="step__card">
+              <div class="step__art"><img src="../images/panels.svg" alt="" width="344" height="252"></div>
+              <div class="step__text">
+                <div>
+                  <span class="numeral text-accent" aria-hidden="true">02</span>
+                  <h3 class="title">Solar Panels</h3>
+                </div>
+                <p class="mono-lg">The panels turn the sunlight into electricity.</p>
+              </div>
+            </div>
+          </li>
+          <li class="step" style="--i: 2">
+            <div class="step__card">
+              <div class="step__art"><img src="../images/inverter.svg" alt="" width="239" height="217"></div>
+              <div class="step__text">
+                <div>
+                  <span class="numeral text-accent" aria-hidden="true">03</span>
+                  <h3 class="title">Inverter</h3>
+                </div>
+                <p class="mono-lg">Electricity is changed from DC electricity to AC electricity.</p>
+              </div>
+            </div>
+          </li>
+          <li class="step" style="--i: 3">
+            <div class="step__card">
+              <div class="step__art"><img src="../images/ev.svg" alt="" width="360" height="178"></div>
+              <div class="step__text">
+                <div>
+                  <span class="numeral text-accent" aria-hidden="true">04</span>
+                  <h3 class="title">EV Charger &amp; Battery</h3>
+                </div>
+                <p class="mono-lg">The charger fills the car’s battery so it can go.</p>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Scanning the QR -->
+    <section class="surface-inverse surface-grid" aria-labelledby="scan-heading">
+      <div class="container scan">
+        <div class="scan__intro">
+          <div class="heading-group">
+            <p class="mono-lg text-inverse-accent">Scanning the QR</p>
+            <h2 id="scan-heading" class="heading-lg text-inverse-display">The shirt opens a page that keeps the explanation going.</h2>
+          </div>
+          <p class="body-lg-medium text-inverse">Point a phone camera at the QR code and a web page opens. No download, no account, no distractions. Here’s what's on it:</p>
+        </div>
+
+        <ul class="features" role="list">
+          <li class="frame frame--dashed">
+            <div class="feature">
+              <span class="tag mono">Watch <i class="fa-solid fa-play icon-sm" aria-hidden="true"></i></span>
+              <p class="mono text-white">A series of 90 second to 2 minute low-stimulation videos break down the scientific concepts in the shirt diagram.</p>
+            </div>
+          </li>
+          <li class="frame frame--dashed">
+            <div class="feature">
+              <span class="tag mono">Play <i class="fa-solid fa-gamepad icon" aria-hidden="true"></i></span>
+              <p class="mono text-white">Interact by completing simple activities or games.</p>
+            </div>
+          </li>
+          <li class="frame frame--dashed">
+            <div class="feature">
+              <span class="tag mono">Try <i class="fa-solid fa-flask icon" aria-hidden="true"></i></span>
+              <p class="mono text-white">Try an experiment or observe in real life.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Interview CTA -->
+    <section id="interview" class="surface-accent surface-grain" aria-labelledby="interview-heading">
+      <div class="container interview">
+        <h2 id="interview-heading" class="heading-lg-bold">Done reviewing the page?</h2>
+        <div class="interview__body body-lg">
+          <p>We’d love to hear what you think. Take part in an anonymous 7-minute guided voice interview and share your thoughts in your own words.</p>
+          <p>Your feedback will help us understand what parents value, what questions they still have, and how we can make Curithreads more useful and engaging for kids and families.</p>
+        </div>
+        <a class="button body-bold" href="https://buildpad.io/interview/tk2288g4">Take the Interview</a>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Curithreads — Components
+   Requires tokens.css + typography.css.
+   ========================================================================== */
+
+/* ---- Pill ------------------------------------------------------------------
+   Outlined label on dark backgrounds ("No app needed").
+   <span class="pill mono">No app needed</span> */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-8);
+  border: 1px solid var(--border-pill-inverse);
+  border-radius: var(--radius-lg);
+  color: var(--text-inverse-subtle);
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16);
+}
+
+/* ---- Tag -------------------------------------------------------------------
+   Filled chip with optional dot or trailing icon ("Watch ▶").
+   <span class="tag mono">Watch <i class="fa-solid fa-play icon-sm" aria-hidden="true"></i></span> */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--space-4) var(--space-8);
+  background: var(--surface-tag);
+  border: 1px solid var(--border-tag);
+  border-radius: var(--radius-md);
+  color: var(--text-default);
+}
+
+.tag__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--scale-orange-200);
+}
+
+/* ---- Frame -----------------------------------------------------------------
+   Thin light outline that wraps images and cards on dark backgrounds. */
+
+.frame {
+  padding: var(--space-8);
+  border: 1px solid var(--border-frame);
+  border-radius: var(--radius-md);
+}
+
+/* Dashed variant: 4px dashes / 4px gaps. CSS `dashed` can't set dash length,
+   so the outline is an SVG used as a mask over a solid fill, which lets the
+   color come from a variable. Stroke is 2px centered on the edge, leaving a
+   1px visible line.
+   Set --frame-color to change it, e.g. on light backgrounds:
+   <figure class="frame frame--dashed" style="--frame-color: var(--primary-navy)"> */
+.frame--dashed {
+  --frame-color: var(--border-frame);
+  position: relative;
+  border-color: transparent;
+}
+
+.frame--dashed::before {
+  content: "";
+  position: absolute;
+  inset: -1px; /* cover the transparent 1px border */
+  /* Snap to whole pixels. Frames around images often have fractional heights,
+     and the SVG mask then rasterizes a pixel taller than the box, clipping the
+     bottom line. Browsers without round() keep the inset sizing above. */
+  width: round(down, 100% + 2px, 1px);
+  height: round(down, 100% + 2px, 1px);
+  border-radius: inherit;
+  background: var(--frame-color);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='10' fill='none' stroke='black' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='10' fill='none' stroke='black' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+/* ---- Caret list ------------------------------------------------------------
+   Bulleted list with orange caret icons. */
+
+.caret-list {
+  display: grid;
+  gap: 10px;
+}
+
+.caret-list li {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.caret-list i {
+  flex: none;
+  color: var(--text-icon-accent);
+  line-height: 1.6; /* optically centers the caret on the first line of 18px text */
+}
+
+/* ---- Eyebrow + heading group --------------------------------------------- */
+
+.heading-group {
+  display: grid;
+  gap: var(--space-8);
+}
+
+/* ---- Button ----------------------------------------------------------------
+   Primary action. Use on <a> for navigation, <button> for actions.
+   <a class="button body-bold" href="…">Take the Interview</a> */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  min-height: 48px;
+  padding: var(--space-12) var(--space-24);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--primary-navy);
+  color: var(--scale-orange-25);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.button:hover {
+  background: var(--scale-navy-900);
+}
+
+.button:active {
+  transform: translateY(1px);
+}

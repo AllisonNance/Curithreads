@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Curithreads — Base
+   Requires tokens.css.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-default);
+  color: var(--text-default);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure, ul, ol {
+  margin: 0;
+}
+
+/* Lists used for layout: add role="list" so Safari keeps list semantics */
+ul[role="list"],
+ol[role="list"] {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary-orange);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---- Layout ---------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--section-pad-y) var(--gutter);
+}
+
+/* ---- Surfaces -------------------------------------------------------------- */
+
+.surface-inverse { background: var(--surface-inverse); }
+.surface-banner  { background: var(--surface-banner); }
+.surface-warm    { background: var(--surface-warm); }
+.surface-cool    { background: var(--surface-cool); }
+.surface-accent  { background: var(--surface-accent); }
+
+/* Grid pattern overlay. Background images paint above the background color
+   and below content, so no extra element is needed.
+   <section class="surface-inverse surface-grid"> */
+.surface-grid {
+  background-image: url("../images/grid-background.svg");
+  background-position: top left;
+  background-repeat: repeat;
+  background-size: 121.333px; /* 25% of the source artwork's 485.333px period */
+}
+
+/* Retro print grain for light surfaces.
+   <section class="surface-warm surface-grain"> */
+.surface-grain {
+  background-image: url("../images/grain.svg");
+  background-repeat: repeat;
+  background-size: 200px;
+}
