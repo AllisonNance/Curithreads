@@ -253,6 +253,11 @@
   max-width: var(--content-max);
 }
 
+/* Footnote sits close under the paragraph it qualifies */
+.interview__note {
+  margin-top: calc(var(--space-8) - 1.5em);
+}
+
 /* Email list card: 64px below the CTA (grid gap already gives 16px) */
 .notify {
   max-width: var(--content-max);
