@@ -253,6 +253,20 @@
   max-width: var(--content-max);
 }
 
+/* Email list card: 64px below the CTA (grid gap already gives 16px) */
+.notify {
+  max-width: var(--content-max);
+  margin-top: calc(var(--space-64) - var(--space-16));
+  padding: var(--space-24);
+  background: var(--surface-warm);
+  border: 1px solid var(--scale-orange-300);
+  border-radius: var(--radius-md);
+}
+
+.notify .link {
+  font-weight: var(--weight-bold);
+}
+
 /* ---- Tablet: stack two-column sections ------------------------------------- */
 
 @media (max-width: 960px) {
