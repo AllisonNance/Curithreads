@@ -1,0 +1,311 @@
+/* ==========================================================================
+   Page: parent-survey
+   Page-specific layout only. Colors, type and components come from /css.
+   ========================================================================== */
+
+/* ---- Hero ------------------------------------------------------------------ */
+
+.hero {
+  display: grid;
+  gap: var(--space-64);
+}
+
+.hero__logo {
+  width: 213px;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 50/50 */
+  align-items: center;
+  gap: var(--space-64);
+}
+
+.hero__copy {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.hero__intro {
+  display: grid;
+  gap: var(--space-32);
+}
+
+.hero__media {
+  display: grid;
+  justify-items: end;
+  padding: var(--space-16);
+}
+
+.hero__media img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-media-dark);
+}
+
+/* Tag straddles the image's bottom edge: pulled up by half its own height
+   (1lh text + 2 × 4px padding + 2 × 1px border). */
+.hero__media .tag {
+  position: relative; /* paint above the image */
+  margin-top: calc((1lh + 2 * var(--space-4) + 2px) / -2);
+  margin-inline: var(--space-16);
+  white-space: nowrap; /* one line, so the half-height offset stays exact */
+}
+
+/* ---- The Product ----------------------------------------------------------- */
+
+.product {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.product .lead {
+  max-width: var(--content-max);
+}
+
+.product__media {
+  --frame-color: var(--primary-navy); /* cream dashes vanish on light blue */
+  width: 100%;
+  max-width: 600px;
+  margin-top: var(--space-24);
+  padding: var(--space-16);
+}
+
+.product__media img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-media-light);
+}
+
+/* ---- On the Shirt ---------------------------------------------------------- */
+
+.shirt {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: start;
+  gap: var(--space-32);
+}
+
+/* Card stack ----------------------------------------------------------------
+   Each step is a sticky card. As you scroll, the next card slides up and
+   stacks over the previous one, offset by --stack-peek so earlier cards show
+   as tabs. parent-survey.js shrinks covered cards slightly for depth.
+   --pin-offset (set by the JS) is how much of the viewport the pinned title
+   covers, so cards stick just below it. */
+
+.shirt {
+  --pin-offset: var(--space-64);
+  --stack-peek: var(--space-16);   /* visible edge of each covered card */
+  --stack-gap: var(--space-48);    /* space between cards before they stack */
+  --art-h: 240px;
+}
+
+/* Spacing uses grid gap, not margins: a sticky element's margin counts
+   against its container, which released the stack before card 4 landed. */
+.steps {
+  display: grid;
+  gap: var(--stack-gap);
+  container-type: inline-size;
+}
+
+.step {
+  position: sticky;
+  top: calc(var(--pin-offset) + var(--i) * var(--stack-peek));
+}
+
+/* Down arrow in the gap below each card. It travels with its card and is
+   covered by the next card as that one stacks on top. Drawn with a mask so
+   the color comes from the token. */
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 16px;
+  height: var(--stack-gap);
+  transform: translateX(-50%);
+  background: var(--primary-orange);
+  transition: opacity 0.2s ease;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 22'%3E%3Cpath d='M7 0h2v17.6l4.3-4.3 1.4 1.4L8 21.4 1.3 14.7l1.4-1.4L7 17.6z'/%3E%3C/svg%3E") center / 16px 22px no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 22'%3E%3Cpath d='M7 0h2v17.6l4.3-4.3 1.4 1.4L8 21.4 1.3 14.7l1.4-1.4L7 17.6z'/%3E%3C/svg%3E") center / 16px 22px no-repeat;
+}
+
+/* Hide the arrow once the next card has stacked (set by parent-survey.js) */
+.step.is-covered::after {
+  opacity: 0;
+}
+
+.step__card {
+  display: grid;
+  align-items: center;
+  gap: var(--space-16);
+  padding: var(--space-16);
+  background: var(--surface-warm);
+  border: 1px solid var(--scale-orange-200);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 -4px 24px rgb(106 56 0 / 0.08); /* orange-900 tint */
+  transform-origin: top center;
+  will-change: transform;
+}
+
+.step__art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--art-h);
+}
+
+.step__art img {
+  width: auto;
+  max-height: 100%;
+}
+
+.step__text {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.step__text .numeral {
+  display: block;
+}
+
+/* Step number + title set smaller than the base .numeral / .title styles */
+.step__text .numeral {
+  font-size: var(--size-24);
+}
+
+.step__text .title {
+  font-size: var(--size-18);
+}
+
+/* Wide cards: art beside text */
+@container (min-width: 560px) {
+  .step__card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-32);
+    padding: var(--space-24);
+  }
+}
+
+/* Pinned title. Desktop: sticks in the left column.
+   Stacked (≤960px): sticks to the top with its own background so the cards
+   scroll behind it — see the media query below. */
+.shirt__intro {
+  position: sticky;
+  top: var(--space-64);
+  z-index: 1;
+  max-width: 504px;
+}
+
+/* ---- Scanning the QR ------------------------------------------------------- */
+
+.scan {
+  display: grid;
+  gap: var(--space-40);
+}
+
+.scan__intro {
+  display: grid;
+  gap: var(--space-32);
+  max-width: var(--content-max);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-64);
+}
+
+.feature {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: var(--space-16);
+  height: 100%;
+  min-height: 178px;
+  padding: var(--space-16);
+  background: var(--surface-inverse-raised);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-raised);
+}
+
+/* ---- Email list ----------------------------------------------------------- */
+
+.notify {
+  max-width: var(--content-max);
+  padding: var(--space-24);
+  background: var(--surface-warm);
+  border: 1px solid var(--scale-orange-300);
+  border-radius: var(--radius-md);
+}
+
+.notify .link {
+  font-weight: var(--weight-bold);
+}
+
+/* ---- Tablet: stack two-column sections ------------------------------------- */
+
+@media (max-width: 960px) {
+  .hero__grid,
+  .shirt {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .shirt {
+    gap: var(--space-24);
+    --stack-peek: var(--space-12);
+    --art-h: 180px;
+  }
+
+
+  /* Pinned title bar: full-bleed, same fill + grain as the section so the
+     steps disappear behind it. */
+  .shirt__intro {
+    top: 0;
+    max-width: none;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: var(--space-24) var(--gutter);
+    background: var(--surface-warm) url("../images/grain.svg") repeat;
+    background-size: 200px;
+  }
+
+  .features {
+    gap: var(--space-32);
+  }
+}
+
+/* ---- Mobile --------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .hero {
+    gap: var(--space-40);
+  }
+
+  .hero__intro {
+    gap: var(--space-24);
+  }
+
+  .hero__logo {
+    width: 160px;
+  }
+
+  .hero__media,
+  .product__media {
+    padding: var(--space-8);
+  }
+
+  .hero__media .tag {
+    margin-inline: var(--space-8);
+    font-size: var(--size-14);
+  }
+
+  .steps {
+    gap: var(--space-48);
+  }
+
+  .features {
+    gap: var(--space-24);
+  }
+}
